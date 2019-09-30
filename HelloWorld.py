@@ -35,7 +35,7 @@ class Greeting:
             - return:
             - functionality:
         """
-        self.greeting_str = greet_str
+        self.greetings = greet_str
 
     def __del__(self):
         """
@@ -45,6 +45,17 @@ class Greeting:
             - return:
             - functionality:
         """
+        print("Base Class destroyed")
+
+    def greet(self):
+        """
+        3. _print()
+            - note:
+            - input:
+            - return:
+            - functionality:
+        """
+        print(self.greetings)
 
 
 class Hello(Greeting):
@@ -71,7 +82,7 @@ class Hello(Greeting):
         - return:
         - functionality:
         """
-        self.greeting = Greeting(greet_str)
+        self.greetings = greet_str
 
     def __del__(self):
         """
@@ -80,7 +91,8 @@ class Hello(Greeting):
         - return:
         - functionality:
         """
-        pass
+        print("Hello destroyed")
+        super(Hello, self).__del__()
 
 
 class GoodBye(Greeting):
@@ -107,7 +119,7 @@ class GoodBye(Greeting):
         - return:
         - functionality:
         """
-        self.greeting = Greeting(greet_str)
+        self.greetings = greet_str
 
     def __del__(self):
         """
@@ -116,7 +128,8 @@ class GoodBye(Greeting):
         - return:
         - functionality:
         """
-        del self.greeting
+        print("GoodBye destroyed")
+        super(GoodBye, self).__del__()
 
 
 """"End of the script"""
